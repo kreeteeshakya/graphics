@@ -5,7 +5,7 @@ import pygame
 from pygame.locals import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
-
+from OpenGL.GLUT import *
 from config import WINDOW_WIDTH, WINDOW_HEIGHT, FOV, TARGET_COUNT
 from camera import Camera
 from target import Target, GameState
@@ -13,6 +13,7 @@ from renderer import draw_crosshair, draw_ground, draw_hud
 
 
 def main():
+    glutInit()
     pygame.init()
     screen = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT), DOUBLEBUF | OPENGL)
     pygame.display.set_caption("FPS Training Simulation")

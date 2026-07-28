@@ -9,7 +9,7 @@ import numpy as np
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from config import BOUNDARY_X_MIN, BOUNDARY_X_MAX, BOUNDARY_Y_MIN, BOUNDARY_Y_MAX, BOUNDARY_Z_MIN, BOUNDARY_Z_MAX
-
+from zombie import draw_zombie
 
 class Target:
     """Represents a moving sphere target"""
@@ -62,14 +62,20 @@ class Target:
         if not self.active:
             return
         
+        
         glPushMatrix()
-        glTranslatef(self.position[0], self.position[1], self.position[2])
-        glColor3f(*self.color)
-        
-        quad = gluNewQuadric()
-        gluSphere(quad, self.radius, 20, 20)
-        gluDeleteQuadric(quad)
-        
+
+        glTranslatef(
+            self.position[0],
+            self.position[1],
+            self.position[2]
+        )
+
+        # Scale the zombie
+        glScalef(0.5, 0.5, 0.5)
+
+        draw_zombie()
+
         glPopMatrix()
     
     def check_hit(self, ray_origin, ray_direction):
@@ -85,7 +91,15 @@ class Target:
         
         discriminant = b * b - 4 * a * c
         
-        return discriminant > 0
+        if discriminant < 0:
+             return False
+
+        sqrt_disc = np.sqrt(discriminant)
+        t1 = (-b - sqrt_disc) / (2 * a)
+        t2 = (-b + sqrt_disc) / (2 * a)
+
+    # Hit only counts if the intersection is in front of the ray origin
+        return t1 > 0 or t2 > 0
 
 class GameState:
     """Manages game statistics and state"""
