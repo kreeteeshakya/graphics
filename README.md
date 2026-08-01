@@ -1,7 +1,8 @@
 # Computer Graphics Project
 
-> 🎥 **Demo Video:**
-> https://github.com/user-attachments/assets/db478b70-79d2-43b1-a284-6fc149995f35
+🎥 **Demo Video:**
+
+https://github.com/user-attachments/assets/db478b70-79d2-43b1-a284-6fc149995f35
 
 ## Overview
 
