@@ -1,20 +1,38 @@
-# ==================== CONFIGURATION ====================
 """
 Configuration constants for FPS Training Simulation
 """
 
-# Window settings
+# ==================== WINDOW SETTINGS ====================
+
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
-FOV = 60  # Field of view in degrees
 
-# Controls
+# Field of View
+FOV = 60
+
+
+# ==================== CAMERA SETTINGS ====================
+
+# Mouse sensitivity for first-person camera
 MOUSE_SENSITIVITY = 0.2
 
-# Game settings
-TARGET_COUNT = 5  # Number of targets to spawn
 
-# Target containment boundaries
-BOUNDARY_X_MIN, BOUNDARY_X_MAX = -17.0, 17.0
-BOUNDARY_Y_MIN, BOUNDARY_Y_MAX = -2.5, 4.0
-BOUNDARY_Z_MIN, BOUNDARY_Z_MAX = -27.0, 7.0
+# ==================== GAME SETTINGS ====================
+
+# Number of zombie targets
+TARGET_COUNT = 5
+
+
+# ==================== TARGET BOUNDARIES ====================
+
+# X-axis boundaries
+BOUNDARY_X_MIN = -17.0
+BOUNDARY_X_MAX = 17.0
+
+# Y-axis boundaries
+BOUNDARY_Y_MIN = -2.5
+BOUNDARY_Y_MAX = 4.0
+
+# Z-axis boundaries
+BOUNDARY_Z_MIN = -27.0
+BOUNDARY_Z_MAX = 7.0
